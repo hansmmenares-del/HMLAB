@@ -1,0 +1,35 @@
+///////// FUNCIONALIDAD DEL PROGRAMA
+
+[ver casos posibles]
+(1) HACER CUENTA;
+	por cada lectura agregar a la suma, hacer boucher (preguntar qué debería tener), fecha y hora de emisión, doctor, trabajos, [[[nombre de paciente es complejo de agregar-> muy variable]]] se puede hacer con código de números externos.
+
+(2) Ingresar doctor nuevo
+	nombre, apellido, fechas?, código barras?.
+
+(3) Borrar doctor
+	guardar parcialmente por un tiempo.
+
+(4) Cambiar doctor
+	cambio de nombre, fechas?, código barras?
+
+(5) Ingresar trabajo nuevo
+	tipo de trabajo, especificaciones minimas para comprender el trabajo, precio, metadata
+
+(6) Borrar trabajo nuevo
+	se guarda por un tiempo y se borra tipo de trabajo ingresado
+
+
+/////// para hacer cuenta
+(1)
+
+leer Doctor;
+leer nombre paciente (alternativa o vacio);
+
+Repetir
+	codigo-> trabajo -> * cantidad
+	fin? continuar?
+Hasta que fin
+
+total = suma de lecturas
+emitir boleta
