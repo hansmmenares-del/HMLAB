@@ -1,3 +1,7 @@
+#git pull origin main
+#git add .
+#git commit -m "..."
+#git push
 import os
 import json
 # FUNCIONES GENERALES
@@ -53,11 +57,13 @@ while True:
                                 print("--- A continuacion deberá ingresar los datos del dr ---")
                                 nombre_check = True
                                 while nombre_check:
+                                    
                                     nombre = input("Ingresa el nombre del Dr(a): ").strip().capitalize()
+                                    
+                                    ###
                                     if nombre == "":
                                         print("El nombre no puede estar vacío")
-                                    elif len(nombre) < 3:
-                                        print("El nombre es demasiado corto") #error
+                                    elif len(nombre) < 3: #error
                                         while True:
                                             try:
                                                 retry_name = int(input("El nombre es muy corto\n(1) Continuar de todas maneras.\n(2) Ingresar de nuevo el nombre.\n"))
@@ -79,10 +85,57 @@ while True:
                                             break
                                         else:
                                             nombre_check = False
+                                    ###
+                                    
+                                apellido_check = True
+                                while apellido_check:
+                                    
+                                    apellido = input("Ingresa el apellido del dr: ").strip().capitalize
+                                    
+                                    ###
+                                    if apellido == "":
+                                        print("El apellido no puede estar vacío")
+                                    elif len(apellido) < 3: #error
+                                        while True:
+                                            try:
+                                                retry_name = int(input("El apellido es muy corto\n(1) Continuar de todas maneras.\n(2) Ingresar de nuevo el apellido.\n"))
+                                            except ValueError:
+                                                print("Inválido! Ingresa 1 o 2\n")
+                                            else:
+                                                if retry_name < 1 or retry_name > 2:
+                                                    print("Inválido! Ingresa 1 o 2\n")
+                                                else:
+                                                    if retry_name == 1:
+                                                        break
+                                                    elif retry_name == 2:
+                                                        continue
+                                    elif not apellido.replace(" ","").isalpha():
+                                        print("El apellido solo puede contener letras.") #error
+                                    for i in apellido:
+                                        if i.isdigit():
+                                            print("El apellido no puede contener números") #error
+                                            break
+                                        else:
+                                            apellido_check = False
+                                    ###
                                 
-                                                                
-                                apellido=pedir_texto("Ingresa el apellido del dr: ")
-                                contacto=pedir_texto("Ingresa el número de contacto: +56")
+                                contacto_check = True
+                                while contacto_check:
+                                    try:
+                                        contacto = int(input("Ingresa el número de contacto: +56"))
+                                    except ValueError:
+                                        print("Número inválido! Debes ingresar los digitos desde el 9 en adelante (ej: 93212345)")
+                                    else:
+                                        if len(str(contacto)) != 9 :
+                                            print("Número inválido! Debes ingresar los digitos desde le 9 en adelante (ej: 93212345)")
+                                        elif str(contacto)[0] != 9:
+                                            print("Número inválido! Debes ingresar los digitos desde le 9 en adelante (ej: 93212345)")
+                                        
+                                            
+                                        
+                                        
+                                        
+                                        
                                 direccion=pedir_texto("Ingresa direccion: ")
                                 tipo_empresa=pedir_texto("Ingresa tipo de empresa: ")
                                 rut_empresa=pedir_texto("Ingresa rut de empresa: ")
